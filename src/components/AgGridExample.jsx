@@ -21,6 +21,13 @@ const AgGridExample = (props) => {
   const autoSizeStrategy = {
     type: "fitCellContents",
   };
+  const defaultColDef = {
+    sortable: true,
+    filter: true,
+  };
+
+  const paginationPageSize = 5; // Number of rows per page
+
 
   return (
     <div style={{ width: "100%", height: "400px" }}>
@@ -32,6 +39,10 @@ const AgGridExample = (props) => {
           rowData={rowData}
           columnDefs={columnDefs}
           autoSizeStrategy={autoSizeStrategy}
+          pagination={true}
+          paginationPageSize={paginationPageSize}
+          domLayout='autoHeight'
+          defaultColDef={defaultColDef}
         />
       </div>
     </div>

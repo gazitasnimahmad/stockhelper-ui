@@ -3,6 +3,7 @@ import CustomHeader from "../layouts/CustomHeader";
 import { Button, Form } from "react-bootstrap";
 import axios from "axios";
 import AgGridExample from "./AgGridExample";
+import ChartLogic from "./ChartLogic";
 
 const Insights = () => {
   const [error, setError] = useState();
@@ -51,9 +52,17 @@ const Insights = () => {
           <br />
         </Form>
       </center>
-      <br/>
+      <br />
       <div>
-        {(stockData != null || stockData != undefined) ? (
+        {stockData != null || stockData != undefined ? (
+          <ChartLogic stockData={stockData} className = "chart-style" />
+        ) : (
+          <center></center>
+        )}
+      </div>
+      <br/><hr/><br/><br/>
+      <div>
+        {stockData != null || stockData != undefined ? (
           <AgGridExample stockData={stockData} className="custom-input" />
         ) : (
           <center></center>
