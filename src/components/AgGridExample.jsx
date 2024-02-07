@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { AgGridReact } from "ag-grid-react";
 
 const AgGridExample = (props) => {

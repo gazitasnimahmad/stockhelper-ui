@@ -1,5 +1,4 @@
 import React from "react";
-import CustomHeader from "../layouts/CustomHeader";
 import ReactApexChart from "react-apexcharts";
 
 const ChartLogic = (props) => {
@@ -40,7 +39,7 @@ const ChartLogic = (props) => {
           ranges: [{
             from: -100,
             to: -46,
-            color: 'green'
+            color: '#7FFFD4'
           }, {
             from: -45,
             to: 0,

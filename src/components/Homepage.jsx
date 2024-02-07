@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 import CustomHeader from "../layouts/CustomHeader";
 
 function Homepage() {
   const [file, setFile] = useState();
   const [uploadedFile, setUploadedFile] = useState();
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
 
   function handleChange(event) {
@@ -13,6 +14,7 @@ function Homepage() {
   }
 
   function handleSubmit(event) {
+    setIsLoading(true);
     event.preventDefault();
     const url = "http://localhost:8080/stockhelper/upload";
     const formData = new FormData();
@@ -27,10 +29,12 @@ function Homepage() {
       .then((response) => {
         console.log(response.data);
         setUploadedFile(response.data.file);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error uploading file: ", error);
         setError(error);
+        setIsLoading(false);
       });
   }
 
@@ -47,6 +51,8 @@ function Homepage() {
           Upload
         </Button>
       </form>
+      
+      {isLoading ? <Spinner animation="border" /> : <h4></h4>}
       {error && <p>Error uploading file: {error.message}</p>}
     </div>
   );
