@@ -12,7 +12,8 @@ const Insights = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const url = "http://localhost:8080/stockhelper/insights";
+    // const url = "http://localhost:8080/stockhelper/insights";
+    const url = "https://stock-helper-dev.onrender.com";
 
     var myParams = {
       symbol: inputValue,
