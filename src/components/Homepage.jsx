@@ -16,8 +16,8 @@ function Homepage() {
   function handleSubmit(event) {
     setIsLoading(true);
     event.preventDefault();
-    // const url = "http://localhost:8080/stockhelper/upload";
-    const url = "https://stock-helper-dev.onrender.com/stockhelper/upload";
+    const url = "http://localhost:8080/stockhelper/upload";
+    // const url = "https://stock-helper-dev.onrender.com/stockhelper/upload";
     const formData = new FormData();
     formData.append("file", file);
     const config = {
